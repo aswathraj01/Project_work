@@ -1,0 +1,85 @@
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+  /* Full-screen blurred city background image from static folder */
+  background-image: url('../background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+.container {
+  flex: 1;
+  /* Removed centering to revert to original form container size/position */
+}
+
+footer {
+  /* Glass effect for footer */
+  background: rgba(78, 205, 196, 0.8);
+  backdrop-filter: blur(15px);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+}
+
+/* Dynamic form styles with transitions */
+.form-control, .form-select {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.form-control:focus, .form-select:focus {
+  transform: scale(1.02);
+  box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+  border-color: #007bff;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.form-control::placeholder, .form-select {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Button responsiveness to cursor movement */
+.btn {
+  transition: all 0.2s ease;
+  border-radius: 8px;
+  background: rgba(40, 167, 69, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background: rgba(40, 167, 69, 1);
+}
+
+/* Glassmorphism-style form card */
+.card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  color: #fff;
+}
+
+.card-header {
+  background: rgba(0, 123, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px 15px 0 0;
+}
+
+/* Pure glass effect for navbar header */
+.navbar {
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0;
+}

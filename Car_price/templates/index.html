@@ -1,0 +1,81 @@
+{% include 'header.html' %}
+{% include 'navbar.html' %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card shadow">
+            
+                <div class="card-body">
+                    <form action="/predict" method="post">
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Year</label>
+                                <input type="number" name="Year" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Present Price (in Lakhs)</label>
+                                <input type="number" step="0.01" name="Present_Price" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Kms Driven</label>
+                                <input type="number" name="Kms_Driven" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Owner</label>
+                                <input type="number" name="Owner" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Fuel Type</label>
+                                <select name="Fuel_Type" class="form-control" required>
+                                    <option value="Petrol">Petrol</option>
+                                    <option value="Diesel">Diesel</option>
+                                    <option value="CNG">CNG</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label>Transmission</label>
+                                <select name="Transmission" class="form-control" required>
+                                    <option value="Manual">Manual</option>
+                                    <option value="Automatic">Automatic</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Seller Type</label>
+                            <select name="Seller_Type" class="form-control" required>
+                                <option value="Dealer">Dealer</option>
+                                <option value="Individual">Individual</option>
+                            </select>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">
+                                Predict Price
+                            </button>
+                        </div>
+
+                    </form>
+
+                    {% if prediction_text %}
+                        <div class="alert alert-info text-center mt-4">
+                            {{ prediction_text }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
