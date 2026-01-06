@@ -1,0 +1,91 @@
+{% include 'header.html' %}
+{% include 'navbar.html' %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-body">
+                    <form action="/predict" method="post">
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Fixed Acidity</label>
+                                <input type="number" step="0.01" name="fixed_acidity" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Volatile Acidity</label>
+                                <input type="number" step="0.01" name="volatile_acidity" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Citric Acid</label>
+                                <input type="number" step="0.01" name="citric_acid" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Residual Sugar</label>
+                                <input type="number" step="0.01" name="residual_sugar" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Chlorides</label>
+                                <input type="number" step="0.0001" name="chlorides" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Free Sulfur Dioxide</label>
+                                <input type="number" name="free_sulfur_dioxide" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Total Sulfur Dioxide</label>
+                                <input type="number" name="total_sulfur_dioxide" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Density</label>
+                                <input type="number" step="0.0001" name="density" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>pH</label>
+                                <input type="number" step="0.01" name="pH" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Sulphates</label>
+                                <input type="number" step="0.01" name="sulphates" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Alcohol</label>
+                            <input type="number" step="0.1" name="alcohol" class="form-control" required>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">
+                                Predict Wine Type
+                            </button>
+                        </div>
+
+                    </form>
+
+                    {% if prediction_text %}
+                        <div class="alert alert-info text-center mt-4">
+                            {{ prediction_text }}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
