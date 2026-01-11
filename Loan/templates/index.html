@@ -1,0 +1,123 @@
+{% include 'header.html' %}
+{% include 'navbar.html' %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card shadow">
+                <div class="card-body">
+
+                    <h4 class="text-center mb-4">Loan Approval Prediction</h4>
+
+                    <form action="/predict" method="post">
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Gender</label>
+                                <select name="Gender" class="form-control" required>
+                                    <option value="1">Male</option>
+                                    <option value="0">Female</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label>Married</label>
+                                <select name="Married" class="form-control" required>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Dependents</label>
+                                <input type="number" min="0" max="3" name="Dependents" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Education</label>
+                                <select name="Education" class="form-control" required>
+                                    <option value="1">Graduate</option>
+                                    <option value="0">Not Graduate</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Self Employed</label>
+                                <select name="Self_Employed" class="form-control" required>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label>Credit History</label>
+                                <select name="Credit_History" class="form-control" required>
+                                    <option value="1">Good</option>
+                                    <option value="0">Bad</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Applicant Income</label>
+                                <input type="number" name="ApplicantIncome" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Coapplicant Income</label>
+                                <input type="number" name="CoapplicantIncome" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Loan Amount</label>
+                                <input type="number" name="LoanAmount" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Loan Amount Term</label>
+                                <input type="number" name="Loan_Amount_Term" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Property Area (Semiurban)</label>
+                                <select name="Property_Area_Semiurban" class="form-control" required>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label>Property Area (Urban)</label>
+                                <select name="Property_Area_Urban" class="form-control" required>
+                                    <option value="1">Yes</option>
+                                    <option value="0">No</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">
+                                Predict Loan Status
+                            </button>
+                        </div>
+
+                    </form>
+
+                    {% if prediction_text %}
+                        <div class="alert alert-info text-center mt-4">
+                            {{ prediction_text }}
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
