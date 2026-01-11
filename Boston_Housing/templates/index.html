@@ -1,0 +1,110 @@
+{% include 'header.html' %}
+{% include 'navbar.html' %}
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+
+            <div class="card shadow">
+                <div class="card-body">
+
+                    <h4 class="text-center mb-4">Boston Housing Price Prediction</h4>
+
+                    <form action="/predict" method="post">
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Crime Rate (CRIM)</label>
+                                <input type="number" step="0.001" name="CRIM" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Residential Land Zoned (ZN)</label>
+                                <input type="number" step="0.1" name="ZN" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Industrial Proportion (INDUS)</label>
+                                <input type="number" step="0.1" name="INDUS" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Charles River (CHAS)</label>
+                                <select name="CHAS" class="form-control" required>
+                                    <option value="0">No</option>
+                                    <option value="1">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Nitric Oxide (NOX)</label>
+                                <input type="number" step="0.001" name="NOX" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Average Rooms (RM)</label>
+                                <input type="number" step="0.1" name="RM" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Age of Property (AGE)</label>
+                                <input type="number" step="0.1" name="AGE" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Distance to Employment (DIS)</label>
+                                <input type="number" step="0.1" name="DIS" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Accessibility to Highways (RAD)</label>
+                                <input type="number" name="RAD" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Property Tax Rate (TAX)</label>
+                                <input type="number" name="TAX" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col">
+                                <label>Pupil-Teacher Ratio (PTRATIO)</label>
+                                <input type="number" step="0.1" name="PTRATIO" class="form-control" required>
+                            </div>
+                            <div class="col">
+                                <label>Black Population Index (B)</label>
+                                <input type="number" step="0.1" name="B" class="form-control" required>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label>Lower Status Population % (LSTAT)</label>
+                            <input type="number" step="0.1" name="LSTAT" class="form-control" required>
+                        </div>
+
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">
+                                Predict House Price
+                            </button>
+                        </div>
+
+                    </form>
+
+                    {% if prediction_text %}
+                        <div class="alert alert-info text-center mt-4">
+                            {{ prediction_text }}
+                        </div>
+                    {% endif %}
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
